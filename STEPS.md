@@ -1,6 +1,6 @@
 ### 1. Question formulation
-1. What are the top 5 most common genre for movies and TV shows released on year 2017-2021?
-2. Are there any correlation between content rating and common movie genre for movies released 2021?
+1. Trend of most common genre for movies and TV shows released on year 2017-2021?
+2. Are there any correlation between content rating and common movie genre for movies released on 2021?
 3. Who are the main target audience for movies and TV shows released on year 2017-2021?
 
 Dropped questions:
@@ -32,30 +32,19 @@ Using **Google Spreadsheet**:
 10. Resulting dataset: **processed.csv** (8746 data rows, excluding header)
 
 Using **Google Colaboratory**
-1. Check `duration_int` for outliers using Q1, Q3, LUB, RUB, MIN, MAX
-   - Note: must first separate by `type`
-2. Handle `duration_int` outliers:
-   - For `Movie`: drop rows where `duration_int` is less than 40 or greater than 210
-3. Resulting dataset: **processed.csv**
-4. Split `listed_in` into multiple genre columns
-5. Split `cast` into multiple cast columns
-6. cast_count: how many casts are in shows
-   - Q1: 1.0
-   - Q3: 5.0
-   - LUB: -5.0
-   - RUB: 11.0
+1. Resulting dataset: **processed.csv**
+2. Split `listed_in` into multiple genre columns
+3. Split `cast` into multiple cast columns
+4. cast_count: how many casts are in shows
+   - Q1: 2.0
+   - Q3: 6.0
+   - LUB: -6.0
+   - RUB: 12.0
    - Max: 76
-7. Drop cast columns after the 11th cast (RUB)
-8. Create dataset **df_genre.csv** with the following attributes:
+5. Drop cast columns after the 11th cast (RUB)
+6. Create dataset **df_genre.csv** with the following attributes:
    - `show_id`
-   - `type`
-   - `release_date`
    - `genre` (only 1 column)
-   - `duration` (from `duration_int`)
-   - `rating`
-9. Create dataset **df_cast.csv** with the following attributes:
+7. Create dataset **df_cast.csv** with the following attributes:
    - `show_id`
-   - `type`
    - `cast` (only 1 column)
-   - `director`
-   - `listed_in`
