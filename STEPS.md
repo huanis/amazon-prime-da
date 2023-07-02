@@ -10,7 +10,7 @@ Dropped questions:
 ### 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
-2. Extract the integer values of `duration` column into `duration_int` column
+2. Extract the integer values of `duration` into `duration_int`
 3. Found data inconsistencies in column `rating`:
    - replace `AGES_16_` to `16+`
    - replace `AGES_18_` to `18+`
