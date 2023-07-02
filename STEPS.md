@@ -21,14 +21,14 @@ Using **Google Spreadsheet**:
 5. Found rows with integer values in `cast` column (drop rows)
 6. Found rows with integer values in `description` column (drop rows)
 7. Extract the integer values of `duration` column into `duration_int` column
-8. Resulting dataset: intermediate.csv
+8. Resulting dataset: **intermediate.csv**
 
 Using **Google Colaboratory**
 1. Check `duration_int` for outliers using Q1, Q3, LUB, RUB, MIN, MAX
    - Note: must first separate by `type`
 2. Handle `duration_int` outliers:
    - For `Movie`: drop rows where `duration_int` is less than 40 or greater than 210
-3. Resulting dataset: processed.csv
+3. Resulting dataset: **processed.csv**
 4. Split `listed_in` into multiple genre columns
 5. Split `cast` into multiple cast columns
 6. cast_count: how many casts are in shows
@@ -38,14 +38,14 @@ Using **Google Colaboratory**
    - RUB: 11.0
    - Max: 76
 7. Drop cast columns after the 11th cast (RUB)
-8. Create dataset df_genre.csv with the following attributes:
+8. Create dataset **df_genre.csv** with the following attributes:
    - `show_id`
    - `type`
    - `release_date`
    - `genre` (only 1 column)
    - `duration` (from `duration_int`)
    - `rating`
-9. Create dataset df_cast.csv with the following attributes:
+9. Create dataset **df_cast.csv** with the following attributes:
    - `show_id`
    - `type`
    - `cast` (only 1 column)
