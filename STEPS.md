@@ -21,9 +21,9 @@ Using **Google Spreadsheet**:
   - replace `AGES_18_` to `18+`
   - replace `ALL`, `ALL_AGES` to `G`
   - replace `UNRATED`, `NOT_RATE`, `TV-NR` to `NR`
-4. Found rows with integer values in `director` column (drop rows)
-5. Found rows with integer values in `cast` column (drop rows)
-6. Found rows with integer values in `description` column (drop rows)
+4. Found rows with integer values in `director` column -> **drop rows**
+5. Found rows with integer values in `cast` column -> **drop rows**
+6. Found rows with integer values in `description` column -> **drop rows**
 7. Extract the integer values of `duration` column into `duration_int` column
 8. Resulting dataset: **intermediate.csv**
 
