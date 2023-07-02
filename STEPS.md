@@ -11,11 +11,11 @@ Dropped questions:
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
 2. Missing data are found in columns:
-  - `director`: 21.53%
-  - `cast`: 12.75%
-  - `country`: 93.05% (drop column)
-  - `date added`: 98.40% (drop column)
-  - `rating`: 3.49% (drop rows)
+  - `director`: 2082 rows (21.53%)
+  - `cast`: 1233 rows (12.75%)
+  - `country`: 8996 rows (93.05%) -> **drop column**
+  - `date added`: 9513 rows (98.40%) -> **drop column**
+  - `rating`: 337 (3.49%) -> **drop rows**
 3. Found data inconsistency in column `rating`:
   - replace `AGES_16_` to `16+`
   - replace `AGES_18_` to `18+`
