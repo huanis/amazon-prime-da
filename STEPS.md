@@ -1,11 +1,9 @@
 ### 1. Question formulation
 1. Trend of most common genre for movies and TV shows released on year 2017-2021?
 2. Are there any correlation between content rating and common movie genre for movies released on 2021?
-3. Who are the main target audience for movies and TV shows released on year 2017-2021?
-
-Dropped questions:
-1. Which pair of director and cast are most frequently working in the same show?
-2. Top 5 most casted people in horror movies of the year 2017-2021?
+3. Who are the main target audience for movies and TV shows released on year 2021?
+4. Which pair of director and cast are most frequently working in the same show?
+5. Are there anyone who had been casted in both movies and TV shows on the year 2000-2021?
 
 ### 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
@@ -31,7 +29,7 @@ Using **Google Spreadsheet**:
    - Drop all 29 rows with `duration_int` value greater than 210 (most of them are something along the line of "X hours of [adjective] sounds")
 10. Resulting dataset: **processed.csv** (8746 data rows, excluding header)
 
-Using **Google Colaboratory**
+Using **Google Colaboratory**:
 1. Resulting dataset: **processed.csv**
 2. Split `listed_in` into multiple genre columns
 3. Split `cast` into multiple cast columns
@@ -48,3 +46,11 @@ Using **Google Colaboratory**
 7. Create dataset **df_cast.csv** with the following attributes:
    - `show_id`
    - `cast` (only 1 column)
+  
+Using **Google Spreadsheet**:
+1. Main dataset preparation for Google Data Studio (Looker)
+   - Drop columns `description` and `cast` from **processing.csv**
+   - Resulting dataset: **final.csv**
+2. Drop index column in **df_genre.csv** and **df_cast** which is a residue from Google Colaboratory processes
+
+### 3. Data Visualization
