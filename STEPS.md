@@ -27,9 +27,9 @@ Using **Google Spreadsheet**:
 7. Found 14 rows with integer values in `cast` column -> **immediate drop rows**
 8. Found 5 rows with integer values in `description` column -> **immediate drop rows**
 9. For `type` Movie, we focus on feature films.
-   - Drop rows with `duration_int` value less than 40 (cut off short films, test objects, and music videos)
-   - Drop rows with `duration_int` value greater than 210 (most of them are something along the line of "X hours of [adjective] sounds")
-10. Resulting dataset: **processed.csv** (9297 data rows)
+   - Drop all 521 rows with `duration_int` value less than 40 (cut off short films, test objects, and music videos)
+   - Drop all 29 rows with `duration_int` value greater than 210 (most of them are something along the line of "X hours of [adjective] sounds")
+10. Resulting dataset: **processed.csv** (8746 data rows, excluding header)
 
 Using **Google Colaboratory**
 1. Check `duration_int` for outliers using Q1, Q3, LUB, RUB, MIN, MAX
