@@ -1,8 +1,8 @@
 ### 1. Question formulation
-1. What are the top 5 most common genre for movies and TV shows released on year 2017-2020?
-2. Who are the top 10 people most frequently casted for horror movies released on year 2017-2020?
-3. Who are the main target audience for movies and TV shows released on year 2017-2020?
-4. Are there any correlation between content rating and common movie genre for movies?
+1. What are the top 5 most common genre for movies and TV shows released on year 2017-2021?
+2. Who are the top 10 people most frequently casted for horror movies released on year 2017-2021?
+3. Who are the main target audience for movies and TV shows released on year 2017-2021?
+4. Are there any correlation between content rating and common movie genre for movies released 2021?
 ### 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
