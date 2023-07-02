@@ -2,7 +2,11 @@
 1. What are the top 5 most common genre for movies and TV shows released on year 2017-2021?
 2. Are there any correlation between content rating and common movie genre for movies released 2021?
 3. Who are the main target audience for movies and TV shows released on year 2017-2021?
-4. Which pair of director and cast are most frequently working in the same show?
+
+Dropped question:
+1. Which pair of director and cast are most frequently working in the same show?
+2. Top 5 most casted people in horror movies of the year 2017-2021?
+
 ### 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
