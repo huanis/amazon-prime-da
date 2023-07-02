@@ -15,17 +15,17 @@ Using **Google Spreadsheet**:
   - `cast`: 1233 rows (12.75%)
   - `country`: 8996 rows (93.05%) -> **drop column**
   - `date added`: 9513 rows (98.40%) -> **drop column**
-  - `rating`: 337 (3.49%) -> **drop rows**
+  - `rating`: 337 (3.49%) -> **immediate drop rows**
 3. Found data inconsistency in column `rating`:
   - replace `AGES_16_` to `16+`
   - replace `AGES_18_` to `18+`
   - replace `ALL`, `ALL_AGES` to `G`
   - replace `UNRATED`, `NOT_RATE`, `TV-NR` to `NR`
-4. Found rows with integer values in `director` column -> **drop rows**
-5. Found rows with integer values in `cast` column -> **drop rows**
-6. Found rows with integer values in `description` column -> **drop rows**
+4. Found 16 rows with integer values in `director` column -> **immediate drop rows**
+5. Found 14 rows with integer values in `cast` column -> **immediate drop rows**
+6. Found 5 rows with integer values in `description` column -> **immediate drop rows**
 7. Extract the integer values of `duration` column into `duration_int` column
-8. Resulting dataset: **intermediate.csv**
+8. Resulting dataset: **intermediate.csv** (9297 data rows)
 
 Using **Google Colaboratory**
 1. Check `duration_int` for outliers using Q1, Q3, LUB, RUB, MIN, MAX
