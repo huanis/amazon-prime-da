@@ -1,8 +1,13 @@
+## Table of Content
+1. [Question Formulation](#1-question-formulation)
+2. [Data Exploration and Processing](#2-data-exploration-and-processing)
+3. [Data Visualization](#3-data-visualization)
+
 ## 1. Question formulation
 1. Genre trend for movies released from the year 2017 to 2021?
 2. Are there any genre caracteristics based on content rating for movies released on 2021?
 3. Who are the main target audience for movies and TV shows released on year 2021?
-4. Which pair of director and cast are most frequently working in the same show?
+4. Which pair of director and cast are most frequently working in the same movie?
 5. Are there anyone who had been casted in both movies and TV shows from the year 2017 to 2021?
 
 ## 2. Data Exploration and Processing
@@ -60,4 +65,28 @@ Using **Google Spreadsheet**:
    - `category_id`: To connect this csv to **rating_category.csv** (mutually exclusive)
 
 ## 3. Data Visualization
-Refer spesifications on: LOOKER_DATA_SPEC.md
+Refer to [LOOKER_DATA_SPEC.md](LOOKER_DATA_SPEC.md) for specifications.
+
+### "Feature Film Genre Trend Released on 2017-2021"
+
+### "Feature Films Rating Trend Released on 2017-2021"
+
+### "Total Rated"
+
+### "Rated Safe for Kids (below 13)"
+
+### "Rated Safe for Teens"
+
+### "Rated Safe for Adults (18+)"
+
+### "Top 5 Feature Film Genres safe for Kids 2021"
+
+### "Top 5 Feature Film Genres safe for Teens 2021"
+
+### "Top 5 Feature Film Genres for Adults 2021"
+
+### "Director - Cast Pair of Year 2000-2021 for Feature Film"
+
+### "Total Cast"
+
+### "People Casted in Both Movies and TV Shows of Year 2000-2021"
