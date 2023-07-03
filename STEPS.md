@@ -1,11 +1,11 @@
-### 1. Question formulation
+## 1. Question formulation
 1. Genre trend for movies released from the year 2017 to 2021?
 2. Are there any genre caracteristics based on content rating for movies released on 2021?
 3. Who are the main target audience for movies and TV shows released on year 2021?
 4. Which pair of director and cast are most frequently working in the same show?
 5. Are there anyone who had been casted in both movies and TV shows from the year 2017 to 2021?
 
-### 2. Data Exploration and Processing
+## 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
 2. Extract the integer values of `duration` into `duration_int`
@@ -59,4 +59,5 @@ Using **Google Spreadsheet**:
    - `rating`: Has 11 unique values, which are all the movie ratings in **processed.csv**
    - `category_id`: To connect this csv to **rating_category.csv** (mutually exclusive)
 
-### 3. Data Visualization
+## 3. Data Visualization
+Refer spesifications on: LOOKER_DATA_SPEC.md
