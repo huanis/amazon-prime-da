@@ -1,11 +1,16 @@
-### 1. Question formulation
-1. Trend of most common genre for movies and TV shows released on year 2017-2021?
-2. Are there any correlation between content rating and common movie genre for movies released on 2021?
-3. Who are the main target audience for movies and TV shows released on year 2021?
-4. Which pair of director and cast are most frequently working in the same show?
-5. Are there anyone who had been casted in both movies and TV shows on the year 2000-2021?
+## Table of Content
+1. [Question Formulation](#1-question-formulation)
+2. [Data Exploration and Processing](#2-data-exploration-and-processing)
+3. [Data Visualization](#3-data-visualization)
 
-### 2. Data Exploration and Processing
+## 1. Question formulation
+1. Genre trend for movies released from the year 2017 to 2021?
+2. Are there any genre caracteristics based on content rating for movies released on 2021?
+3. Who are the main target audience for movies and TV shows released on year 2021?
+4. Which pair of director and cast are most frequently working in the same movie?
+5. Are there anyone who had been casted in both movies and TV shows from the year 2017 to 2021?
+
+## 2. Data Exploration and Processing
 Using **Google Spreadsheet**:
 1. There are no duplicate rows found
 2. Extract the integer values of `duration` into `duration_int`
@@ -52,5 +57,160 @@ Using **Google Spreadsheet**:
    - Drop columns `description` and `cast` from **processing.csv**
    - Resulting dataset: **final.csv**
 2. Drop index column in **df_genre.csv** and **df_cast** which is a residue from Google Colaboratory processes
+3. Create a new csv file **rating_category.csv** that contains 2 columns:
+   - `id`: Primary key of the row
+   - `category`: Has 3 unique values (-, kids, teens, and adults)
+4. Create a new csv file **movie_rating.csv** that contains 2 columns:
+   - `rating`: Has 11 unique values, which are all the movie ratings in **processed.csv**
+   - `category_id`: To connect this csv to **rating_category.csv** (mutually exclusive)
 
-### 3. Data Visualization
+## 3. Data Visualization
+Refer to [LOOKER_DATA_SPEC.md](LOOKER_DATA_SPEC.md) for specifications.
+
+### "Feature Film Genre Trend Released on 2017-2021"
+- Chart type: line
+- Data source: genre-main
+- Dimension:
+  - release_year
+- Breakdown Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: release_year (ascending)
+- Secondary sort: Total Film (descending)
+- Filters:
+  - movie (genre-main)
+  - 2017-2021 (genre-main)
+  - exclude-genre (genre-main)
+
+### "Feature Films Rating Trend Released on 2017-2021"
+- Chart type: line
+- Data source: final.csv
+- Dimension:
+  - release_year
+- Breakdown Dimension:
+  - rating
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: release_year (ascending)
+- Secondary sort: Total Film (descending)
+- Filters:
+  - movie-2017 (main)
+
+### "Total Rated"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+
+### "Rated Safe for Kids (below 13)"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - kids (movie-rating)
+
+### "Rated Safe for Teens"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - teens (movie-rating)
+
+### "Rated Safe for Adults (18+)"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - adults (movie-rating)
+
+### "Top 5 Feature Film Genres safe for Kids 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  - kids (movie-rating)
+
+### "Top 5 Feature Film Genres safe for Teens 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  -  teens (movie-rating)
+
+### "Top 5 Feature Film Genres for Adults 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  - adults (movie-rating)
+
+### "Director - Cast Pair of Year 2000-2021 for Feature Film"
+- Chart type: Table
+- Data source: cast-main
+- Dimension:
+  - director
+  - cast
+- Metric:
+  - total film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: total film (descending)
+- Secondary sort: -
+- Filters:
+  - director-cast filter
+
+### "Total People Casted on Year 2000-2021"
+- Chart type: scoreboard
+- Data source: cast-main
+- Metric:
+  - Total People Casted on Year 2000-2021
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters: -
+
+### "People Casted in Both Movies and TV Shows of Year 2000-2021"
+- Chart type: Table
+- Data source: cast-show
+- Dimension:
+  - cast
+- Metric:
+  - total record in join table
+    - Formula: `COUNT(CONCAT(type (Movie), " - ", type (TV Show)))`
+    - Type: Number
+- Sort: total record in join table (descending)
+- Secondary sort: -
+- Filters: -
