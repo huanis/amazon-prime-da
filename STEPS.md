@@ -68,25 +68,149 @@ Using **Google Spreadsheet**:
 Refer to [LOOKER_DATA_SPEC.md](LOOKER_DATA_SPEC.md) for specifications.
 
 ### "Feature Film Genre Trend Released on 2017-2021"
+- Chart type: line
+- Data source: genre-main
+- Dimension:
+  - release_year
+- Breakdown Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: release_year (ascending)
+- Secondary sort: Total Film (descending)
+- Filters:
+  - movie (genre-main)
+  - 2017-2021 (genre-main)
+  - exclude-genre (genre-main)
 
 ### "Feature Films Rating Trend Released on 2017-2021"
+- Chart type: line
+- Data source: final.csv
+- Dimension:
+  - release_year
+- Breakdown Dimension:
+  - rating
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: release_year (ascending)
+- Secondary sort: Total Film (descending)
+- Filters:
+  - movie-2017 (main)
 
 ### "Total Rated"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
 
 ### "Rated Safe for Kids (below 13)"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - kids (movie-rating)
 
 ### "Rated Safe for Teens"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - teens (movie-rating)
 
 ### "Rated Safe for Adults (18+)"
+- Chart type: scoreboard
+- Data source: movie-rating-genre-2021
+- Metric:
+  - Total Rated
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters:
+  - adults (movie-rating)
 
 ### "Top 5 Feature Film Genres safe for Kids 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  - kids (movie-rating)
 
 ### "Top 5 Feature Film Genres safe for Teens 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  -  teens (movie-rating)
 
 ### "Top 5 Feature Film Genres for Adults 2021"
+- Chart type: bar
+- Data source: movie-rating-genre-2021
+- Dimension:
+  - genre
+- Metric:
+  - Total Film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: Total Film (descending)
+- Filters:
+  - adults (movie-rating)
 
 ### "Director - Cast Pair of Year 2000-2021 for Feature Film"
+- Chart type: Table
+- Data source: cast-main
+- Dimension:
+  - director
+  - cast
+- Metric:
+  - total film
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Sort: total film (descending)
+- Secondary sort: -
+- Filters:
+  - director-cast filter
 
-### "Total Cast"
+### "Total People Casted on Year 2000-2021"
+- Chart type: scoreboard
+- Data source: cast-main
+- Metric:
+  - Total People Casted on Year 2000-2021
+    - Formula: `COUNT_DISTINCT(show_id)`
+    - Type: Number
+- Filters: -
 
 ### "People Casted in Both Movies and TV Shows of Year 2000-2021"
+- Chart type: Table
+- Data source: cast-show
+- Dimension:
+  - cast
+- Metric:
+  - total record in join table
+    - Formula: `COUNT(CONCAT(type (Movie), " - ", type (TV Show)))`
+    - Type: Number
+- Sort: total record in join table (descending)
+- Secondary sort: -
+- Filters: -
