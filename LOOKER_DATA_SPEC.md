@@ -9,7 +9,7 @@
 ## Blended Data
 ### **cast-main** spesifications:
 - Tables:
-  - Cast: df_cast.csv (no filter)
+  - Cast: df_cast.csv (release_year >= 2000)
   - Main: final.csv (no filter)
 - Relation: Cast `INNER JOIN` Main
   - Cast (show_id) - Main (show_id)
@@ -81,11 +81,14 @@
 - Metrics: None
 
 ## Filters
+### **final.csv**:
+- **movie-2017 (main)** specification:
+  - INCLUDE `release_year` >= 2017
+  - AND INCLUDE `type` == Movie
 ### **cast-main**:
 - **director-cast filter** specification:
   - EXCLUDE `director` == (literal blank/missing value)
-  - INCLUDE `type` = Movie
-  - INCLUDE `release_year` >= 2000
+  - AND INCLUDE `type` = Movie
 
 ### **genre-main**:
 - **move (genre-main)** specification:
